@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang=en>
+
+  <head>
+    <meta charset=utf-8>
+    <title>Web Stats</title>
+    <link rel="stylesheet" href="/css/table/table.css" type="text/css" />
+    <link rel="stylesheet" href="/css/graph/graph.css" type="text/css" />
+  </head>
+  
+  <body>
+    <main>
+      <div id="table">
+  <div id="cell-A1">A1</div><div id="cell-B1">B1</div>
+  <div id="cell-A2">A2</div><div id="cell-B2">B2</div>
+</div>
+<div id="graph">
+
+</div>
+<button id="regenerate-button">Regenerate</button>
+
+    </main>
+
+    
+    <script src="/js/app.js?v=0.1.0-alpha" type="module"></script>
+    <script type="module">
+      import "/js/table/table.js?v=0.1.0-alpha"
+    </script>
+    <script type="module">
+      import "/js/graph/graph.js?v=0.1.0-alpha"
+    </script>
+    <script type="module">
+      import "/js/interface/interface.js?v=0.1.0-alpha"
+    </script>
+
+  </body>
+
+</html>

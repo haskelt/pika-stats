@@ -1,0 +1,4 @@
+#means-table {
+    display: grid;
+    grid-template-columns: 40% 40%;
+}

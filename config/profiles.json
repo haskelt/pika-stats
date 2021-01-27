@@ -1,0 +1,22 @@
+{
+    "common": {
+	"project": {
+	    "JS_COPYRIGHT_NOTICE": "// Copyright 2021 Todd R. Haskell\\n// Distributed under the terms of the Gnu GPL 3.0",
+	    "SITE_TITLE": "Web Stats",
+	    "VERSION": "0.1.0-alpha"
+	}
+    },
+    "test": {
+	"project": {
+	    "SITE_PATH": ""
+	}
+    },
+    "production": {
+	"system": {
+	    "deploy_destination": "todhas2@trapline.dreamhost.com:apps.craggypeak.com/web-stats/"
+	},
+	"project": {
+	    "SITE_PATH": "/web-stats"
+	}
+    }
+}
