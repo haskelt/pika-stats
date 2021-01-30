@@ -4,10 +4,6 @@ import d3 from '{{SITE_PATH}}/js/d3/d3.v6.5.0.js?v={{VERSION}}';
 import F from '{{SITE_PATH}}/js/anova/F.js?v={{VERSION}}';
 
 class Anova {
-    // in order of num cols, then num rows
-    static levels = [2, 2];
-    static n = 15;
-    static sd = 28;
 
     /*------------------------------------------------------------------------*/
 
@@ -40,13 +36,12 @@ class Anova {
     /*------------------------------------------------------------------------*/
 
     static update () {
-
-	var N = this.n * this.levels[0] * this.levels[1];
 	var total;
-	
+	var N = this.data.n * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
+		
 	var stats = {};
 	
-	stats['SS-Error'] = (this.n - 1) * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length * Math.pow(this.sd, 2);
+	stats['SS-Error'] = (this.data.n - 1) * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length * Math.pow(this.data.sd, 2);
 	stats['DF-Error'] = N - this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
 	stats['MS-Error'] = stats['SS-Error'] / stats['DF-Error'];
 

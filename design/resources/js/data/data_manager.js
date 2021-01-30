@@ -13,8 +13,12 @@ class DataManager {
 	    dv: "Candies Eaten",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
-	    grandMean: 0
+	    grandMean: 0,
+	    sd: 40,
+	    n: 15
 	};
+	this.data.se = this.data.sd / Math.sqrt(this.data.n);
+
 	descriptives.initialize(this.data);
 	graph.initialize(this.data);
 	anova.initialize(this.data);

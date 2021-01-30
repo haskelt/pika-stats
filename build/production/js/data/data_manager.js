@@ -1,8 +1,8 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.3.0-alpha';
-import graph from '/pika-stats/js/graph/graph.js?v=0.3.0-alpha';
-import anova from '/pika-stats/js/anova/anova.js?v=0.3.0-alpha';
+import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.4.0-alpha';
+import graph from '/pika-stats/js/graph/graph.js?v=0.4.0-alpha';
+import anova from '/pika-stats/js/anova/anova.js?v=0.4.0-alpha';
 
 class DataManager {
 
@@ -13,8 +13,12 @@ class DataManager {
 	    dv: "Candies Eaten",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
-	    grandMean: 0
+	    grandMean: 0,
+	    sd: 40,
+	    n: 15
 	};
+	this.data.se = this.data.sd / Math.sqrt(this.data.n);
+
 	descriptives.initialize(this.data);
 	graph.initialize(this.data);
 	anova.initialize(this.data);
