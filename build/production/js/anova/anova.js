@@ -1,7 +1,7 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.2.0-alpha';
-import F from '/pika-stats/js/anova/F.js?v=0.2.0-alpha';
+import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.3.0-alpha';
+import F from '/pika-stats/js/anova/F.js?v=0.3.0-alpha';
 
 class Anova {
     // in order of num cols, then num rows
@@ -13,43 +13,66 @@ class Anova {
 
     static initialize (data) {
 
-	var anovaElement = document.querySelector('#anova');
-	this.tableCells = {};
-	for(let value of ['labelA', 'effectA', 'SSA', 'DFA', 'MSA', 'FA', 'pA', 'labelB', 'effectB', 'SSB', 'DFB', 'MSB', 'FB', 'pB', 'effectInt', 'SSInt', 'DFInt', 'MSInt', 'FInt', 'pInt', 'SSError', 'DFError', 'MSError']){
-	    this.tableCells[value] = anovaElement.querySelector('#' + value);
-	}
 	this.data = data;
-	    
+
+	var anovaElement = document.querySelector('#anova');
+
+	var ids = ['SS-Error', 'DF-Error', 'MS-Error'];
+	for(let factor of ['0', '1', 'Int']){
+	    ids.push('label-' + factor);
+	    ids.push('SS-' + factor);
+	    ids.push('DF-' + factor);
+	    ids.push('MS-' + factor);
+	    ids.push('F-' + factor);
+	    ids.push('p-' + factor);
+	}
+	this.tableCells = {};
+	for(let id of ids){
+	    this.tableCells[id] = anovaElement.querySelector('#' + id);
+	}
+
+	for(let factor in this.data.factors){
+	    this.tableCells['label-' + factor].innerText = this.data.factors[factor]['name'];
+	}
+	
     } // initialize
     
     /*------------------------------------------------------------------------*/
 
     static update () {
 
-	this.tableCells['labelA'].innerText = this.data.factors[0]['name'];
-	this.tableCells['labelB'].innerText = this.data.factors[1]['name'];
-	
 	var N = this.n * this.levels[0] * this.levels[1];
-
+	var total;
+	
 	var stats = {};
 	
-	stats['SSError'] = (this.n - 1) * 4 * Math.pow(this.sd, 2);
-	stats['DFError'] = N - this.levels[0] * this.levels[1];
-	stats['MSError'] = stats['SSError'] / stats['DFError'];
+	stats['SS-Error'] = (this.n - 1) * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length * Math.pow(this.sd, 2);
+	stats['DF-Error'] = N - this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
+	stats['MS-Error'] = stats['SS-Error'] / stats['DF-Error'];
 
-	stats['effectA'] = Math.abs(this.data.marginalMeans[0][0] - this.data.marginalMeans[0][1]) / 2;
-	stats['effectB'] = Math.abs(this.data.marginalMeans[1][0] - this.data.marginalMeans[1][1]) / 2;
-	stats['effectInt'] = Math.abs((this.data.cellMeans[0][0] - this.data.cellMeans[0][1]) - (this.data.cellMeans[1][0] - this.data.cellMeans[1][1])) / 4;
+	for(let factor in this.data.factors){
+	    total = 0;
+	    for(let level in this.data.factors[factor]['levels']){
+		total += Math.pow(this.data.marginalMeans[factor][level] - this.data.grandMean, 2);
+	    }
+	    stats['SS-' + factor] = N * total / this.data.factors[factor]['levels'].length;
+	    stats['DF-' + factor] = this.data.factors[factor]['levels'].length - 1;
+	}
+
+	total = 0;
+	for(let col in this.data.factors[0]['levels']){
+	    for(let row in this.data.factors[1]['levels']){
+		total += Math.pow(this.data.cellMeans[row][col] - this.data.marginalMeans[0][col] - this.data.marginalMeans[1][row] + this.data.grandMean, 2);
+	    }
+	}
+	stats['SS-Int'] = N * total / (this.data.factors[0]['levels'].length  * this.data.factors[1]['levels'].length)
+	stats['DF-Int'] = (this.data.factors[0]['levels'].length - 1) * (this.data.factors[1]['levels'].length - 1);
+
 	
-	stats['DFA'] = this.levels[0] - 1;
-	stats['DFB'] = this.levels[1] - 1;
-	stats['DFInt'] = (this.levels[0] - 1) * (this.levels[1] - 1);
-
-	for(let effect of ['A', 'B', 'Int']){
-	    stats['SS' + effect] = N * Math.pow(stats['effect' + effect], 2);
-	    stats['MS' + effect] = stats['SS' + effect] / stats['DF' + effect];
-	    stats['F' + effect] = stats['MS' + effect] / stats['MSError'];
-	    stats['p' + effect] = F.compute(stats['F' + effect], stats['DF' + effect], stats['DFError']);
+	for(let effect of ['0', '1', 'Int']){
+	    stats['MS-' + effect] = stats['SS-' + effect] / stats['DF-' + effect];
+	    stats['F-' + effect] = stats['MS-' + effect] / stats['MS-Error'];
+	    stats['p-' + effect] = F.compute(stats['F-' + effect], stats['DF-' + effect], stats['DF-Error']);
 	}
 	
 	for(let name in stats){

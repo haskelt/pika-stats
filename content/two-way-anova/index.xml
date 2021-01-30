@@ -1,4 +1,4 @@
-<page modules="descriptives graph anova controls">
+<page title="Two-Way Anova" modules="descriptives graph anova controls">
   <pane-wrapper>
     <descriptives/>
     <graph/>

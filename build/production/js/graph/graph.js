@@ -1,7 +1,7 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.2.0-alpha';
-import d3legends from '/pika-stats/js/d3/d3.legends.js?v=0.2.0-alpha';
+import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.3.0-alpha';
+import d3legends from '/pika-stats/js/d3/d3.legends.js?v=0.3.0-alpha';
 
 class Graph {
 

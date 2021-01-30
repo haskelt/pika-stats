@@ -1,8 +1,8 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.2.0-alpha';
-import graph from '/pika-stats/js/graph/graph.js?v=0.2.0-alpha';
-import anova from '/pika-stats/js/anova/anova.js?v=0.2.0-alpha';
+import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.3.0-alpha';
+import graph from '/pika-stats/js/graph/graph.js?v=0.3.0-alpha';
+import anova from '/pika-stats/js/anova/anova.js?v=0.3.0-alpha';
 
 class DataManager {
 
@@ -12,7 +12,8 @@ class DataManager {
 	    factors: [{"name": "Taste", "levels": ["Sour", "Sweet"]}, {"name": "Color", "levels": ["Red", "Blue"]}],
 	    dv: "Candies Eaten",
 	    cellMeans: [[0, 0], [0, 0]],
-	    marginalMeans: [[0, 0], [0, 0]]
+	    marginalMeans: [[0, 0], [0, 0]],
+	    grandMean: 0
 	};
 	descriptives.initialize(this.data);
 	graph.initialize(this.data);
@@ -24,11 +25,15 @@ class DataManager {
 
     static update () {
 
-	for(let row in this.data.cellMeans){
-	    for(let col in this.data.cellMeans[row]){
+	var total = 0;
+	for(let row in this.data.factors[0]['levels']){
+	    for(let col in this.data.factors[1]['levels']){
 		this.data.cellMeans[row][col] = Math.random() * 100;
+		total += this.data.cellMeans[row][col];
 	    }
 	}
+	this.data.grandMean = total / (this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length);
+	
 	this.data.marginalMeans[0][0] = d3.mean([this.data.cellMeans[0][0], this.data.cellMeans[1][0]]);
 	this.data.marginalMeans[0][1] = d3.mean([this.data.cellMeans[0][1], this.data.cellMeans[1][1]]);
 	this.data.marginalMeans[1][0] = d3.mean([this.data.cellMeans[0][0], this.data.cellMeans[0][1]]);
