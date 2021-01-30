@@ -3,7 +3,7 @@
 	"project": {
 	    "JS_COPYRIGHT_NOTICE": "// Copyright 2021 Todd R. Haskell\\n// Distributed under the terms of the Gnu GPL 3.0",
 	    "SITE_TITLE": "Pika Stats",
-	    "VERSION": "0.5.0-alpha"
+	    "VERSION": "0.5.1-alpha"
 	}
     },
     "test": {
