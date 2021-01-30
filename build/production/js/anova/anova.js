@@ -1,7 +1,7 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.4.0-alpha';
-import F from '/pika-stats/js/anova/F.js?v=0.4.0-alpha';
+import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.5.0-alpha';
+import F from '/pika-stats/js/anova/F.js?v=0.5.0-alpha';
 
 class Anova {
 
@@ -30,28 +30,39 @@ class Anova {
 	for(let factor in this.data.factors){
 	    this.tableCells['label-' + factor].innerText = this.data.factors[factor]['name'];
 	}
+
+	this.stats = {};
+
+	return this.stats;
 	
     } // initialize
+
+    /*------------------------------------------------------------------------*/
+
+    static getStats () {
+
+	return this.stats;
+	
+    } // getStats
     
     /*------------------------------------------------------------------------*/
 
-    static update () {
+    static updateStats () {
+
 	var total;
 	var N = this.data.n * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
 		
-	var stats = {};
-	
-	stats['SS-Error'] = (this.data.n - 1) * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length * Math.pow(this.data.sd, 2);
-	stats['DF-Error'] = N - this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
-	stats['MS-Error'] = stats['SS-Error'] / stats['DF-Error'];
+	this.stats['SS-Error'] = (this.data.n - 1) * this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length * Math.pow(this.data.sd, 2);
+	this.stats['DF-Error'] = N - this.data.factors[0]['levels'].length * this.data.factors[1]['levels'].length;
+	this.stats['MS-Error'] = this.stats['SS-Error'] / this.stats['DF-Error'];
 
 	for(let factor in this.data.factors){
 	    total = 0;
 	    for(let level in this.data.factors[factor]['levels']){
 		total += Math.pow(this.data.marginalMeans[factor][level] - this.data.grandMean, 2);
 	    }
-	    stats['SS-' + factor] = N * total / this.data.factors[factor]['levels'].length;
-	    stats['DF-' + factor] = this.data.factors[factor]['levels'].length - 1;
+	    this.stats['SS-' + factor] = N * total / this.data.factors[factor]['levels'].length;
+	    this.stats['DF-' + factor] = this.data.factors[factor]['levels'].length - 1;
 	}
 
 	total = 0;
@@ -60,23 +71,29 @@ class Anova {
 		total += Math.pow(this.data.cellMeans[row][col] - this.data.marginalMeans[0][col] - this.data.marginalMeans[1][row] + this.data.grandMean, 2);
 	    }
 	}
-	stats['SS-Int'] = N * total / (this.data.factors[0]['levels'].length  * this.data.factors[1]['levels'].length)
-	stats['DF-Int'] = (this.data.factors[0]['levels'].length - 1) * (this.data.factors[1]['levels'].length - 1);
+	this.stats['SS-Int'] = N * total / (this.data.factors[0]['levels'].length  * this.data.factors[1]['levels'].length)
+	this.stats['DF-Int'] = (this.data.factors[0]['levels'].length - 1) * (this.data.factors[1]['levels'].length - 1);
 
 	
 	for(let effect of ['0', '1', 'Int']){
-	    stats['MS-' + effect] = stats['SS-' + effect] / stats['DF-' + effect];
-	    stats['F-' + effect] = stats['MS-' + effect] / stats['MS-Error'];
-	    stats['p-' + effect] = F.compute(stats['F-' + effect], stats['DF-' + effect], stats['DF-Error']);
+	    this.stats['MS-' + effect] = this.stats['SS-' + effect] / this.stats['DF-' + effect];
+	    this.stats['F-' + effect] = this.stats['MS-' + effect] / this.stats['MS-Error'];
+	    this.stats['p-' + effect] = F.compute(this.stats['F-' + effect], this.stats['DF-' + effect], this.stats['DF-Error']);
 	}
 	
-	for(let name in stats){
+    } // updateStats
+
+    /*------------------------------------------------------------------------*/
+    
+    static updateTable () {
+	
+	for(let name in this.stats){
 	    if(name in this.tableCells){
-		this.tableCells[name].innerText = stats[name].toFixed(2);
+		this.tableCells[name].innerText = this.stats[name].toFixed(2);
 	    }
 	}
 	
-    } // update
+    } // updateTable
 
     /*------------------------------------------------------------------------*/
 
