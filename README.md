@@ -1,1 +1,1 @@
-# web-stats
+# pika-stats
