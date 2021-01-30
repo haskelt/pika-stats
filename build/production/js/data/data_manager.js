@@ -1,8 +1,8 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/js/descriptives/descriptives.js?v=0.2.0-alpha';
-import graph from '/js/graph/graph.js?v=0.2.0-alpha';
-import anova from '/js/anova/anova.js?v=0.2.0-alpha';
+import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.2.0-alpha';
+import graph from '/pika-stats/js/graph/graph.js?v=0.2.0-alpha';
+import anova from '/pika-stats/js/anova/anova.js?v=0.2.0-alpha';
 
 class DataManager {
 

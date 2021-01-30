@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang=en>
+
+  <head>
+    <meta charset=utf-8>
+    <title>Pika Stats</title>
+    <link rel="stylesheet" href="/css/app.css?v=0.2.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/css/descriptives/descriptives.css?v=0.2.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/css/graph/graph.css?v=0.2.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/css/anova/anova.css?v=0.2.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/css/controls/controls.css?v=0.2.0-alpha" type="text/css" />
+  </head>
+  
+  <body>
+    <main>
+      <div id="pane-wrapper">
+<div id="descriptives">
+  <h1>Descriptive Statistics</h1>
+  <table>
+    <tr><th></th><th></th><th id="factorA" colspan="2"></th></tr>
+    <tr><th></th><th></th><th id="levelA1"></th><th id="levelA2"></th><th>Average</th></tr>
+    <tr><th id="factorB" rowspan="2"></th><th id="levelB1"></th><td id="cell-1-1" class="table-cell"></td><td id="cell-1-2" class="table-cell"></td><td id="marginalB1" class="table-cell"></td></tr>
+    <tr><th id="levelB2"></th><td id="cell-2-1" class="table-cell"></td><td id="cell-2-2" class="table-cell"></td><td id="marginalB2" class="table-cell"></td></tr>
+    <tr><td></td><th>Average</th><td id="marginalA1" class="table-cell"></td><td id="marginalA2" class="table-cell"></td></tr>
+  </table>
+</div>
+<div id="graph">
+  <h1>Interaction Plot</h1>
+  <svg id="graph-svg" width="28rem" height="20rem"></svg>
+</div>
+<div id="anova">
+  <h1>ANOVA Output</h1>
+  <table id="analysis">
+    <tr><th>Source</th><th>Effect</th><th>SS</th><th>df</th><th>MS</th><th>F</th><th>p</th></tr>
+    <tr><td id="labelA"></td><td id="effectA"></td><td id="SSA"></td><td id="DFA"></td><td id="MSA"></td><td id="FA"></td><td id="pA"></td></tr>
+    <tr><td id="labelB"></td><td id="effectB"></td><td id="SSB"></td><td id="DFB"></td><td id="MSB"></td><td id="FB"></td><td id="pB"></td></tr>
+    <tr><td>Interaction</td><td id="effectInt"></td><td id="SSInt"></td><td id="DFInt"></td><td id="MSInt"></td><td id="FInt"></td><td id="pInt"></td></tr>
+    <tr><td>Error</td><td></td><td id="SSError"></td><td id="DFError"></td><td id="MSError"></td></tr>
+  </table>
+</div>
+<div id="controls">
+  <button id="regenerate-button">Regenerate</button>
+</div>
+
+</div>
+
+    </main>
+
+    
+    <script src="/js/app.js?v=0.2.0-alpha" type="module"></script>
+    <script type="module">
+      import "/js/descriptives/descriptives.js?v=0.2.0-alpha"
+    </script>
+    <script type="module">
+      import "/js/graph/graph.js?v=0.2.0-alpha"
+    </script>
+    <script type="module">
+      import "/js/anova/anova.js?v=0.2.0-alpha"
+    </script>
+    <script type="module">
+      import "/js/controls/controls.js?v=0.2.0-alpha"
+    </script>
+
+  </body>
+
+</html>

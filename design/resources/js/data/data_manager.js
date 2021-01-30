@@ -1,22 +1,42 @@
 {{ JS_COPYRIGHT_NOTICE }}
 
-import table from '{{SITE_PATH}}/js/table/table.js?v={{VERSION}}';
+import descriptives from '{{SITE_PATH}}/js/descriptives/descriptives.js?v={{VERSION}}';
 import graph from '{{SITE_PATH}}/js/graph/graph.js?v={{VERSION}}';
+import anova from '{{SITE_PATH}}/js/anova/anova.js?v={{VERSION}}';
 
 class DataManager {
 
+    static initialize () {
+
+	this.data = {
+	    factors: [{"name": "Taste", "levels": ["Sour", "Sweet"]}, {"name": "Color", "levels": ["Red", "Blue"]}],
+	    dv: "Candies Eaten",
+	    cellMeans: [[0, 0], [0, 0]],
+	    marginalMeans: [[0, 0], [0, 0]]
+	};
+	descriptives.initialize(this.data);
+	graph.initialize(this.data);
+	anova.initialize(this.data);
+	
+    } // initialize
+    
     /*------------------------------------------------------------------------*/
 
-    static regenerate () {
+    static update () {
 
-	var values = [[null, null], [null, null]];
-	for(let col in values){
-	    for(let row in values[col]){
-		values[col][row] = Math.random();
+	for(let row in this.data.cellMeans){
+	    for(let col in this.data.cellMeans[row]){
+		this.data.cellMeans[row][col] = Math.random() * 100;
 	    }
 	}
-	table.updateValues(values);
-	graph.updateValues(values);
+	this.data.marginalMeans[0][0] = d3.mean([this.data.cellMeans[0][0], this.data.cellMeans[1][0]]);
+	this.data.marginalMeans[0][1] = d3.mean([this.data.cellMeans[0][1], this.data.cellMeans[1][1]]);
+	this.data.marginalMeans[1][0] = d3.mean([this.data.cellMeans[0][0], this.data.cellMeans[0][1]]);
+	this.data.marginalMeans[1][1] = d3.mean([this.data.cellMeans[1][0], this.data.cellMeans[1][1]]);
+	
+	descriptives.update();
+	graph.update();
+	anova.update();
 	
     } // regenerate
     

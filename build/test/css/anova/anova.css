@@ -1,0 +1,13 @@
+#anova {
+    padding: 1.5rem;
+    background-color: hsl(245, 18%, 89%);
+}
+
+#anova table {
+    border-collapse: collapse;
+}
+
+#anova table th, #anova table td  {
+    border: 1px solid black;
+    padding: 0.5rem;
+}

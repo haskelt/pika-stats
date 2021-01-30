@@ -1,0 +1,16 @@
+#descriptives {
+    padding: 1.5rem;
+    background-color: hsl(15, 45%, 85%);
+}
+
+#descriptives table {
+    border-collapse: collapse;
+}
+
+#descriptives table th, #descriptives table td {
+    padding: 0.5rem;
+}
+
+.table-cell {
+    border: 1px solid black;
+}

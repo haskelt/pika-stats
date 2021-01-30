@@ -1,0 +1,8 @@
+<page modules="descriptives graph anova controls">
+  <pane-wrapper>
+    <descriptives/>
+    <graph/>
+    <anova/>
+    <controls/>
+  </pane-wrapper>
+</page>

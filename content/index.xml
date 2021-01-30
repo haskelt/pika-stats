@@ -1,5 +1,3 @@
-<page modules="table graph interface">
-  <table/>
-  <graph/>
-  <regenerate-button/>
+<page>
+
 </page>

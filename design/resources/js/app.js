@@ -1,3 +1,6 @@
 {{ JS_COPYRIGHT_NOTICE }}
 
-import '{{SITE_PATH}}/js/data/data_manager.js?v{{VERSION}}';
+import data_manager from '{{SITE_PATH}}/js/data/data_manager.js?v={{VERSION}}';
+
+data_manager.initialize();
+data_manager.update();
