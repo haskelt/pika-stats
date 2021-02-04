@@ -4,16 +4,22 @@
   <head>
     <meta charset=utf-8>
     <title>Two-Way Anova - Pika Stats</title>
-    <link rel="stylesheet" href="/pika-stats/css/app.css?v=0.5.1-alpha" type="text/css" />
-    <link rel="stylesheet" href="/pika-stats/css/descriptives/descriptives.css?v=0.5.1-alpha" type="text/css" />
-    <link rel="stylesheet" href="/pika-stats/css/graph/graph.css?v=0.5.1-alpha" type="text/css" />
-    <link rel="stylesheet" href="/pika-stats/css/anova/anova.css?v=0.5.1-alpha" type="text/css" />
-    <link rel="stylesheet" href="/pika-stats/css/controls/controls.css?v=0.5.1-alpha" type="text/css" />
+    <link rel="stylesheet" href="/pika-stats/css/app.css?v=0.6.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/pika-stats/css/descriptives/descriptives.css?v=0.6.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/pika-stats/css/graph/graph.css?v=0.6.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/pika-stats/css/anova/anova.css?v=0.6.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/pika-stats/css/controls/controls.css?v=0.6.0-alpha" type="text/css" />
   </head>
   
   <body>
+    <header>
+      <span class="header__branding">Pika Stats</span> <span class="header__version">0.6.0-alpha</span><span class="header__page-title">Two-Way Anova</span>
+    </header>
     <main>
-      <div id="pane-wrapper">
+      <div id="controls">
+  <button id="regenerate-button" class="controls__button">New Example</button>
+</div>
+<div id="pane-wrapper">
 <div id="descriptives">
   <h1>Descriptive Statistics</h1>
   <table>
@@ -39,27 +45,24 @@
     <tr><td>Error</td><td></td><td id="SS-Error"></td><td id="DF-Error"></td><td id="MS-Error"></td></tr>
   </table>
 </div>
-<div id="controls">
-  <button id="regenerate-button">Regenerate</button>
-</div>
 
 </div>
 
     </main>
 
     
-    <script src="/pika-stats/js/app.js?v=0.5.1-alpha" type="module"></script>
+    <script src="/pika-stats/js/app.js?v=0.6.0-alpha" type="module"></script>
     <script type="module">
-      import "/pika-stats/js/descriptives/descriptives.js?v=0.5.1-alpha"
+      import "/pika-stats/js/descriptives/descriptives.js?v=0.6.0-alpha"
     </script>
     <script type="module">
-      import "/pika-stats/js/graph/graph.js?v=0.5.1-alpha"
+      import "/pika-stats/js/graph/graph.js?v=0.6.0-alpha"
     </script>
     <script type="module">
-      import "/pika-stats/js/anova/anova.js?v=0.5.1-alpha"
+      import "/pika-stats/js/anova/anova.js?v=0.6.0-alpha"
     </script>
     <script type="module">
-      import "/pika-stats/js/controls/controls.js?v=0.5.1-alpha"
+      import "/pika-stats/js/controls/controls.js?v=0.6.0-alpha"
     </script>
 
   </body>

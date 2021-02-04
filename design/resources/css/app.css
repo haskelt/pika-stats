@@ -1,3 +1,31 @@
+header {
+    padding: 0.5rem;
+    background-color: hsl(200, 80%, 15%);
+}
+
+.header__branding {
+    color: white;
+    font-size: 1.5rem;
+    padding: 0 0 0 0.5rem;
+}
+
+.header__version {
+    color: gray;
+    font-size: 1.0rem;
+    padding: 0 0.5rem 0 0;
+}
+
+.header__page-title {
+    color: hsl(40, 70%, 70%);
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
 #pane-wrapper {
     display: grid;
     grid-template-columns: 40% 40%;

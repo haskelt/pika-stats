@@ -17,6 +17,9 @@
   
   <body>
     {% block body %}
+    <header>
+      <span class="header__branding">{{SITE_TITLE}}</span> <span class="header__version">{{VERSION}}</span><span class="header__page-title">{{this.title}}</span>
+    </header>
     <main>
       {% block content %}
       {{ this.content }}

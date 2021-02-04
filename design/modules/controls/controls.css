@@ -1,7 +1,13 @@
 #controls {
-    padding: 1.5rem;
+    width: 100%;
+    padding: 0.8rem; 1.5rem;
+    background-color: hsl(0, 0%, 85%);
 }
 
-#regenerate-button {
-    font-size: 1.5rem;
+.controls__button {
+    font-size: 1.2rem;
+}
+
+.controls__button:hover {
+    cursor: pointer;
 }
