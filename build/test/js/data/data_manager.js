@@ -1,9 +1,9 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/js/descriptives/descriptives.js?v=0.7.0-beta';
-import graph from '/js/graph/graph.js?v=0.7.0-beta';
-import anova from '/js/anova/anova.js?v=0.7.0-beta';
-import verbal_description from '/js/verbal-description/verbal-description.js?v=0.7.0-beta';
+import descriptives from '/js/descriptives/descriptives.js?v=0.7.1-beta';
+import graph from '/js/graph/graph.js?v=0.7.1-beta';
+import anova from '/js/anova/anova.js?v=0.7.1-beta';
+import verbal_description from '/js/verbal-description/verbal-description.js?v=0.7.1-beta';
 
 class DataManager {
 
@@ -12,6 +12,7 @@ class DataManager {
 	this.data = {
 	    factors: [{"name": "Watering Method", "levels": ["Drip Lines", "Sprinklers"]}, {"name": "Light Level", "levels": ["Full Sun", "Partial Sun"]}],
 	    dv: "Plant Height",
+	    dvUnits: "cm",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
 	    grandMean: 0,

@@ -1,7 +1,7 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import d3 from '/js/d3/d3.v6.5.0.js?v=0.7.0-beta';
-import F from '/js/anova/F.js?v=0.7.0-beta';
+import d3 from '/js/d3/d3.v6.5.0.js?v=0.7.1-beta';
+import F from '/js/anova/F.js?v=0.7.1-beta';
 
 class Anova {
 

@@ -12,6 +12,7 @@ class DataManager {
 	this.data = {
 	    factors: [{"name": "Watering Method", "levels": ["Drip Lines", "Sprinklers"]}, {"name": "Light Level", "levels": ["Full Sun", "Partial Sun"]}],
 	    dv: "Plant Height",
+	    dvUnits: "cm",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
 	    grandMean: 0,

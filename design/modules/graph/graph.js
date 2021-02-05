@@ -183,7 +183,7 @@ class Graph {
 	    .attr("x", 0 - this.height / 2 - this.margin)
 	    .attr("y", this.margin * .25 )
 	    .style("text-anchor", "middle")
-	    .text(this.data.dv);
+	    .text(this.data.dv + ' (' + this.data.dvUnits + ')');
 	
 	this.graphElement.appendChild(this.svg.node());
 

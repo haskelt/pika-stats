@@ -1,7 +1,7 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.7.0-beta';
-import d3legends from '/pika-stats/js/d3/d3.legends.js?v=0.7.0-beta';
+import d3 from '/pika-stats/js/d3/d3.v6.5.0.js?v=0.7.1-beta';
+import d3legends from '/pika-stats/js/d3/d3.legends.js?v=0.7.1-beta';
 
 class Graph {
 
@@ -183,7 +183,7 @@ class Graph {
 	    .attr("x", 0 - this.height / 2 - this.margin)
 	    .attr("y", this.margin * .25 )
 	    .style("text-anchor", "middle")
-	    .text(this.data.dv);
+	    .text(this.data.dv + ' (' + this.data.dvUnits + ')');
 	
 	this.graphElement.appendChild(this.svg.node());
 
