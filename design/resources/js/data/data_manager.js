@@ -3,14 +3,15 @@
 import descriptives from '{{SITE_PATH}}/js/descriptives/descriptives.js?v={{VERSION}}';
 import graph from '{{SITE_PATH}}/js/graph/graph.js?v={{VERSION}}';
 import anova from '{{SITE_PATH}}/js/anova/anova.js?v={{VERSION}}';
+import verbal_description from '{{SITE_PATH}}/js/verbal-description/verbal-description.js?v={{VERSION}}';
 
 class DataManager {
 
     static initialize () {
 
 	this.data = {
-	    factors: [{"name": "Taste", "levels": ["Sour", "Sweet"]}, {"name": "Color", "levels": ["Red", "Blue"]}],
-	    dv: "Candies Eaten",
+	    factors: [{"name": "Watering Method", "levels": ["Drip Lines", "Sprinklers"]}, {"name": "Light Level", "levels": ["Full Sun", "Partial Sun"]}],
+	    dv: "Plant Height",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
 	    grandMean: 0,
@@ -22,6 +23,7 @@ class DataManager {
 	descriptives.initialize(this.data);
 	graph.initialize(this.data);
 	this.stats = anova.initialize(this.data);
+	verbal_description.initialize(this.data, this.stats);
 	
     } // initialize
     
@@ -61,6 +63,7 @@ class DataManager {
 	descriptives.update();
 	graph.update();
 	anova.updateTable();
+	verbal_description.update();
 	
     } // regenerate
     

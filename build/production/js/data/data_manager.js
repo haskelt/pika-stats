@@ -1,16 +1,17 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.6.0-alpha';
-import graph from '/pika-stats/js/graph/graph.js?v=0.6.0-alpha';
-import anova from '/pika-stats/js/anova/anova.js?v=0.6.0-alpha';
+import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.7.0-beta';
+import graph from '/pika-stats/js/graph/graph.js?v=0.7.0-beta';
+import anova from '/pika-stats/js/anova/anova.js?v=0.7.0-beta';
+import verbal_description from '/pika-stats/js/verbal-description/verbal-description.js?v=0.7.0-beta';
 
 class DataManager {
 
     static initialize () {
 
 	this.data = {
-	    factors: [{"name": "Taste", "levels": ["Sour", "Sweet"]}, {"name": "Color", "levels": ["Red", "Blue"]}],
-	    dv: "Candies Eaten",
+	    factors: [{"name": "Watering Method", "levels": ["Drip Lines", "Sprinklers"]}, {"name": "Light Level", "levels": ["Full Sun", "Partial Sun"]}],
+	    dv: "Plant Height",
 	    cellMeans: [[0, 0], [0, 0]],
 	    marginalMeans: [[0, 0], [0, 0]],
 	    grandMean: 0,
@@ -22,6 +23,7 @@ class DataManager {
 	descriptives.initialize(this.data);
 	graph.initialize(this.data);
 	this.stats = anova.initialize(this.data);
+	verbal_description.initialize(this.data, this.stats);
 	
     } // initialize
     
@@ -61,6 +63,7 @@ class DataManager {
 	descriptives.update();
 	graph.update();
 	anova.updateTable();
+	verbal_description.update();
 	
     } // regenerate
     

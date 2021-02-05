@@ -1,11 +1,11 @@
 #controls {
     width: 100%;
-    padding: 0.8rem; 1.5rem;
+    padding: 0.4rem; 1.5rem;
     background-color: hsl(0, 0%, 85%);
 }
 
 .controls__button {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .controls__button:hover {

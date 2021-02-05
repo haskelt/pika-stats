@@ -4,16 +4,17 @@
   <head>
     <meta charset=utf-8>
     <title>Two-Way Anova - Pika Stats</title>
-    <link rel="stylesheet" href="/css/app.css?v=0.6.0-alpha" type="text/css" />
-    <link rel="stylesheet" href="/css/descriptives/descriptives.css?v=0.6.0-alpha" type="text/css" />
-    <link rel="stylesheet" href="/css/graph/graph.css?v=0.6.0-alpha" type="text/css" />
-    <link rel="stylesheet" href="/css/anova/anova.css?v=0.6.0-alpha" type="text/css" />
-    <link rel="stylesheet" href="/css/controls/controls.css?v=0.6.0-alpha" type="text/css" />
+    <link rel="stylesheet" href="/css/app.css?v=0.7.0-beta" type="text/css" />
+    <link rel="stylesheet" href="/css/descriptives/descriptives.css?v=0.7.0-beta" type="text/css" />
+    <link rel="stylesheet" href="/css/graph/graph.css?v=0.7.0-beta" type="text/css" />
+    <link rel="stylesheet" href="/css/anova/anova.css?v=0.7.0-beta" type="text/css" />
+    <link rel="stylesheet" href="/css/verbal-description/verbal-description.css?v=0.7.0-beta" type="text/css" />
+    <link rel="stylesheet" href="/css/controls/controls.css?v=0.7.0-beta" type="text/css" />
   </head>
   
   <body>
     <header>
-      <span class="header__branding">Pika Stats</span> <span class="header__version">0.6.0-alpha</span><span class="header__page-title">Two-Way Anova</span>
+      <span class="header__branding">Pika Stats</span> <span class="header__version">0.7.0-beta</span><span class="header__page-title">Two-Way Anova</span>
     </header>
     <main>
       <div id="controls">
@@ -21,7 +22,7 @@
 </div>
 <div id="pane-wrapper">
 <div id="descriptives">
-  <h1>Descriptive Statistics</h1>
+  <h1 class="pane-title">Descriptive Statistics</h1>
   <table>
     <tr><th></th><th></th><th id="factor-0" colspan="2"></th></tr>
     <tr><th></th><th></th><th id="level-0-0"></th><th id="level-0-1"></th><th>Average</th></tr>
@@ -31,19 +32,27 @@
   </table>
 </div>
 <div id="graph">
-  <h1>Interaction Plot</h1>
+  <h1 class="pane-title">Interaction Plot</h1>
   <svg id="graph-svg" width="28rem" height="20rem"></svg>
   <div>Error bars show +/- 1 standard error</div>
 </div>
 <div id="anova">
-  <h1>ANOVA Output</h1>
+  <h1 class="pane-title">ANOVA Output</h1>
   <table id="analysis">
     <tr><th>Source</th><th>SS</th><th>df</th><th>MS</th><th>F</th><th>p</th></tr>
     <tr><td id="label-0"></td><td id="SS-0"></td><td id="DF-0"></td><td id="MS-0"></td><td id="F-0"></td><td id="p-0"></td></tr>
     <tr><td id="label-1"></td><td id="SS-1"></td><td id="DF-1"></td><td id="MS-1"></td><td id="F-1"></td><td id="p-1"></td></tr>
     <tr><td id="label-Int">Interaction</td><td id="SS-Int"></td><td id="DF-Int"></td><td id="MS-Int"></td><td id="F-Int"></td><td id="p-Int"></td></tr>
-    <tr><td>Error</td><td></td><td id="SS-Error"></td><td id="DF-Error"></td><td id="MS-Error"></td></tr>
+    <tr><td>Error</td><td id="SS-Error"></td><td id="DF-Error"></td><td id="MS-Error"></td></tr>
   </table>
+</div>
+<div id="verbal-description">
+  <h1 class="pane-title">Verbal Description</h1>
+  <ul>
+    <li id="description-0"></li>
+    <li id="description-1"></li>
+    <li id="description-Int"></li>
+  </ul>
 </div>
 
 </div>
@@ -51,18 +60,21 @@
     </main>
 
     
-    <script src="/js/app.js?v=0.6.0-alpha" type="module"></script>
+    <script src="/js/app.js?v=0.7.0-beta" type="module"></script>
     <script type="module">
-      import "/js/descriptives/descriptives.js?v=0.6.0-alpha"
+      import "/js/descriptives/descriptives.js?v=0.7.0-beta"
     </script>
     <script type="module">
-      import "/js/graph/graph.js?v=0.6.0-alpha"
+      import "/js/graph/graph.js?v=0.7.0-beta"
     </script>
     <script type="module">
-      import "/js/anova/anova.js?v=0.6.0-alpha"
+      import "/js/anova/anova.js?v=0.7.0-beta"
     </script>
     <script type="module">
-      import "/js/controls/controls.js?v=0.6.0-alpha"
+      import "/js/verbal-description/verbal-description.js?v=0.7.0-beta"
+    </script>
+    <script type="module">
+      import "/js/controls/controls.js?v=0.7.0-beta"
     </script>
 
   </body>
