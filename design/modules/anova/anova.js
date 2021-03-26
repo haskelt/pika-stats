@@ -1,7 +1,7 @@
-{{ JS_COPYRIGHT_NOTICE }}
+{{project.js_copyright_notice}}
 
-import d3 from '{{SITE_PATH}}/js/d3/d3.v6.5.0.js?v={{VERSION}}';
-import F from '{{SITE_PATH}}/js/anova/F.js?v={{VERSION}}';
+import d3 from '{{project.site_path}}/js/d3/d3.v6.5.0.js?v={{project.version}}';
+import F from '{{project.site_path}}/js/anova/F.js?v={{project.version}}';
 
 class Anova {
 

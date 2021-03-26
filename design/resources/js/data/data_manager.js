@@ -1,9 +1,9 @@
-{{ JS_COPYRIGHT_NOTICE }}
+{{project.js_copyright_notice}}
 
-import descriptives from '{{SITE_PATH}}/js/descriptives/descriptives.js?v={{VERSION}}';
-import graph from '{{SITE_PATH}}/js/graph/graph.js?v={{VERSION}}';
-import anova from '{{SITE_PATH}}/js/anova/anova.js?v={{VERSION}}';
-import verbal_description from '{{SITE_PATH}}/js/verbal-description/verbal-description.js?v={{VERSION}}';
+import descriptives from '{{project.site_path}}/js/descriptives/descriptives.js?v={{project.version}}';
+import graph from '{{project.site_path}}/js/graph/graph.js?v={{project.version}}';
+import anova from '{{project.site_path}}/js/anova/anova.js?v={{project.version}}';
+import verbal_description from '{{project.site_path}}/js/verbal-description/verbal-description.js?v={{project.version}}';
 
 class DataManager {
 

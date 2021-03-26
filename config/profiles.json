@@ -1,14 +1,14 @@
 {
     "common": {
 	"project": {
-	    "JS_COPYRIGHT_NOTICE": "// Copyright 2021 Todd R. Haskell\\n// Distributed under the terms of the Gnu GPL 3.0",
-	    "SITE_TITLE": "Pika Stats",
-	    "VERSION": "0.7.1-beta"
+	    "js_copyright_notice": "// Copyright 2021 Todd R. Haskell\\n// Distributed under the terms of the Gnu GPL 3.0",
+	    "site_title": "Pika Stats",
+	    "version": "0.7.2-beta"
 	}
     },
     "test": {
 	"project": {
-	    "SITE_PATH": ""
+	    "site_path": ""
 	}
     },
     "production": {
@@ -16,7 +16,7 @@
 	    "deploy_destination": "todhas2@trapline.dreamhost.com:apps.craggypeak.com/pika-stats/"
 	},
 	"project": {
-	    "SITE_PATH": "/pika-stats"
+	    "site_path": "/pika-stats"
 	}
     }
 }
