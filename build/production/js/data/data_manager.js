@@ -1,9 +1,9 @@
 // Copyright 2021 Todd R. Haskell\n// Distributed under the terms of the Gnu GPL 3.0
 
-import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.7.1-beta';
-import graph from '/pika-stats/js/graph/graph.js?v=0.7.1-beta';
-import anova from '/pika-stats/js/anova/anova.js?v=0.7.1-beta';
-import verbal_description from '/pika-stats/js/verbal-description/verbal-description.js?v=0.7.1-beta';
+import descriptives from '/pika-stats/js/descriptives/descriptives.js?v=0.7.2-beta';
+import graph from '/pika-stats/js/graph/graph.js?v=0.7.2-beta';
+import anova from '/pika-stats/js/anova/anova.js?v=0.7.2-beta';
+import verbal_description from '/pika-stats/js/verbal-description/verbal-description.js?v=0.7.2-beta';
 
 class DataManager {
 

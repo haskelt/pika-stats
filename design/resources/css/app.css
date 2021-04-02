@@ -31,7 +31,16 @@ body {
     grid-template-columns: 40% 40%;
 }
 
+.pane {
+    padding: 1.5rem;
+    background-color: hsl(200, 10%, 90%);
+    border-style: solid;
+    border-width: 0.15rem;
+    border-color: hsl(200, 10%, 65%);
+}
+
 .pane-title {
     margin: 0;
     padding: 0 0 0.7rem 0;
 }
+
