@@ -1,8 +1,0 @@
-#anova table {
-    border-collapse: collapse;
-}
-
-#anova table th, #anova table td  {
-    border: 1px solid black;
-    padding: 0.5rem;
-}

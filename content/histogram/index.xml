@@ -1,0 +1,6 @@
+<page title="Histogram" modules="histogram">
+  <controls/>
+  <pane-wrapper>
+    <histogram/>
+  </pane-wrapper>
+</page>

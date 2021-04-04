@@ -1,5 +1,8 @@
 {
     "common": {
+	"system": {
+	    "content_file_types": [ "xml", "png", "jpg", "svg", "csv" ]
+	},
 	"project": {
 	    "js_copyright_notice": "// Copyright 2021 Todd R. Haskell\\n// Distributed under the terms of the Gnu GPL 3.0",
 	    "site_title": "Pika Stats",

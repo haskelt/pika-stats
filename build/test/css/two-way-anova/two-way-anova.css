@@ -1,0 +1,43 @@
+#controls {
+    width: 100%;
+    padding: 0.4rem; 1.5rem;
+    background-color: hsl(0, 0%, 85%);
+}
+
+.controls__button {
+    font-size: 1.1rem;
+}
+
+.controls__button:hover {
+    cursor: pointer;
+}
+
+#descriptives table {
+    border-collapse: collapse;
+}
+
+#descriptives table th, #descriptives table td {
+    padding: 0.5rem;
+}
+
+.table-cell {
+    border: 1px solid black;
+}
+
+#graph {
+    width: 30rem;
+    height: 22rem;
+}
+
+#anova table {
+    border-collapse: collapse;
+}
+
+#anova table th, #anova table td  {
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+#verbal-description {
+    width: 30rem;
+}
